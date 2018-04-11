@@ -33,7 +33,7 @@ export default class BarChart extends Component {
       width: 600,
       height: 600,
       margin: {top: 20, left: 20, bottom: 50, right: 20},
-      color: '#2980B9',
+      color: '#34495E',
       gutter: 20,
       animate: {
         type: 'oneByOne',
@@ -127,7 +127,8 @@ export default class BarChart extends Component {
     let lines = chart.curves.map(function (c, i) {
       let numDataGroups = this.props.data.length || 0
       let colorVariationVal = numDataGroups > 1 ? numDataGroups : 3
-      let color = this.color(i % colorVariationVal)
+      // let color = this.color(i % colorVariationVal)
+      let color = this.props.options.color
       let stroke = Colors.darkenColor(color)
       return (
                 <G key={'lines' + i}>
@@ -154,3 +155,4 @@ export default class BarChart extends Component {
             </Svg>)
   }
 }
+
